@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Who is millionaire</title>
+</head>
+<div>
+    <h2 id="styleTime">
+        Time remaining:<span id="timeCountDown"></span>
+    </h2>
+</div>
+<div id='point'>
+    <h2 id="result"></h2>
+</div>
+<body>
+<div id="wrapper">
+    <div id="questionScreen" class="hide">
+        <div id="question">Câu hỏi</div>
+        <div id="answer">
+            <button id="answer_1" onclick="checkAnswer(this.id, this)">Answer question 1</button>
+            <button id="answer_2" onclick="checkAnswer(this.id, this)">Answer question 2</button></br>
+            <button id="answer_3" onclick="checkAnswer(this.id, this)">Answer question 3</button>
+            <button id="answer_4" onclick="checkAnswer(this.id, this)">Answer question 4</button></br>
+        </div>
+    </div>
+</div>
+
+<script src="js/Questions.js">
+    document.getElementById('question').innerHTML = questions[0].content;
+</script>
+</body>
+</html>
