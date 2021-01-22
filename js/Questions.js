@@ -15,6 +15,8 @@ class Question {
     function music() {
         musicBackground = new Audio("sound/start.mp3");
     }
+    music();
+    musicBackground.play();
 
     let timeCount;
     let message;
@@ -25,12 +27,20 @@ class Question {
         countdown();
     }, 1000);
 
+
     function countdown() {
+        let styles = document.getElementById('styleTime');
+        let styleTime = document.getElementById('timeCountDown');
         if (timeCount < 0) {
          clearInterval(timeID);
-            message = window.confirm('Time Out!');
+            message = window.alert('Time Out!');
             reload();
         }
+        if (timeCount < 5){
+            styles.style.color = 'red';
+            styleTime.style.color = 'red';
+        }
+
     }
 
     let question1 = new Question("Câu 1:Điền từ còn thiếu vào chỗ trống trong câu: ”Đục nước béo …”? ", ["A.Vạc", "B.Cò", "C.Cá", "D.Mèo"], "B.Cò", "200.000 VNĐ");
@@ -68,14 +78,12 @@ class Question {
 
         }
     }
-    music();
-    musicBackground.play();
+
 
     showQuestion(question1);
     let index = 0;
 
     function checkAnswer(id) {
-        console.log(index);
         let answer = document.getElementById(id).innerHTML;
         let getQuestionId = document.getElementById('question');
         if (!confirm("Are you sure?")) {
@@ -84,7 +92,7 @@ class Question {
         if (questions[index].checkAnswer(answer)) {
             alert('You are correct');
             if (index === 14) {
-            alert("Excilent, you win");
+            alert("Excilent, you win !");
             timeCount = 1;
             reload();
             }
